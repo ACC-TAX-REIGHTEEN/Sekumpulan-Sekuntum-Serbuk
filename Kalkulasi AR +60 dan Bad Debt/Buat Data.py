@@ -103,7 +103,7 @@ monthly_results = {}
 quarter_groups = {} 
 
 sisa_piutang_col = clean_key("Sisa Piutang")
-umur_japo_col = clean_key("Umur AR Base on Tgl Japo")
+umur_japo_col = clean_key("Umur AR base on Tgl Faktur")
 nama_penjual_col = clean_key("Nama Penjual")
 nama_pelanggan_col = clean_key("Nama Pelanggan")
 negara_pelanggan_col = clean_key("Negara Pelanggan")
@@ -176,7 +176,7 @@ for sheet in valid_sheets:
             
             matched_prod = None
             for p in filter_produk:
-                if p != "LAIN" and p in row_data["kontak_clean"]:
+                if p != "LAIN" and p.replace(" ", "") in row_data["kontak_clean"].replace(" ", ""):
                     matched_prod = p
                     break
             if not matched_prod:
